@@ -1,12 +1,12 @@
 #!/usr/bin/env node
-const util = require('util');
-const exec = util.promisify(require('child_process').exec);
-const gitRemoteOriginUrl = require('git-remote-origin-url');
-const open = require('open');
+const util = require("util");
+const exec = util.promisify(require("child_process").exec);
+const gitRemoteOriginUrl = require("git-remote-origin-url");
+const open = require("open");
 
 async function generateLink() {
   try {
-    const { stdout, stderr } = await exec('git rev-parse --abbrev-ref HEAD');
+    const { stdout, stderr } = await exec("git rev-parse --abbrev-ref HEAD");
     if (stderr) {
       throw stderr;
     }
