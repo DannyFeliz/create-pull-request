@@ -1,0 +1,12 @@
+{
+  "name": "open-pr",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "Danny Feliz <dannyfeliz08@gmail.com>",
+  "license": "ISC"
+}
