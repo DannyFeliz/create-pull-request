@@ -3,6 +3,9 @@
   "version": "1.0.3",
   "description": "Allow to open the URL to create a pull request pointing to the base branch",
   "keywords": [
+    "cli",
+    "terminal",
+    "from terminal",
     "github",
     "git",
     "create pull request",
