@@ -13,6 +13,11 @@
   ],
   "author": "Danny Feliz <dannyfeliz08@gmail.com>",
   "license": "MIT",
+  "bugs": "https://github.com/DannyFeliz/create-pull-request/issues/new",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/DannyFeliz/create-pull-request"
+  },
   "dependencies": {
     "git-remote-origin-url": "^3.1.0",
     "open": "^7.4.0"
