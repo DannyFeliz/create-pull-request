@@ -1,12 +1,23 @@
 {
-  "name": "open-pr",
+  "name": "@dannyfeliz/open-pr",
   "version": "1.0.0",
-  "description": "",
-  "main": "index.js",
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
-  },
-  "keywords": [],
+  "description": "Allow to open the URL to create a pull request pointing to the base branch",
+  "keywords": [
+    "github",
+    "git",
+    "create pull request",
+    "create pr",
+    "open pr",
+    "pr",
+    "pull request"
+  ],
   "author": "Danny Feliz <dannyfeliz08@gmail.com>",
-  "license": "ISC"
+  "license": "MIT",
+  "dependencies": {
+    "git-remote-origin-url": "^3.1.0",
+    "open": "^7.4.0"
+  },
+  "bin": {
+    "open-pr": "./script.js"
+  }
 }
