@@ -4,7 +4,7 @@ const exec = util.promisify(require("child_process").exec);
 const gitRemoteOriginUrl = require("git-remote-origin-url");
 const open = require("open");
 
-async function generateLink() {
+(async () => {
   try {
     const { stdout, stderr } = await exec("git rev-parse --abbrev-ref HEAD");
     if (stderr) {
@@ -19,6 +19,4 @@ async function generateLink() {
   } catch (error) {
     throw error;
   }
-}
-
-generateLink();
+})();
