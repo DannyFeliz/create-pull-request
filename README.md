@@ -1,30 +1,30 @@
-# open-pr
+# create-pull-request
 
-open-pr is a CLI that allows you to open the URL to create a pull request pointing to the base branch in Github.
+create-pull-request is a CLI that allows you to open the URL to create a pull request pointing to the base branch in Github.
 
 ## Installation
 
-Use npm or yarn to install open-pr.
+Use npm or yarn to install create-pull-request.
 
 ```bash
 # npm
-npm install @dannyfeliz/open-pr --global
+npm install create-pull-request --global
 
 # yarn
-yarn add @dannyfeliz/open-pr --global
+yarn add create-pull-request --global
 ```
 
 ## Usage
 
 ```
 // in the terminal in your project folder
-open-pr
+create-pull-request
 ```
 
 It will open an URL to create a new pull request pointing to the base branch.
 
 e.g.
-if you have the `linux` project and you're working in a cool feature like `my-cool-feature` and the project origin url is `git@github.com:torvalds/linux.git` if you run `open-pr` it will open this URL
+if you have the `linux` project and you're working in a cool feature like `my-cool-feature` and the project origin url is `git@github.com:torvalds/linux.git` if you run `create-pull-request` it will open this URL
 
 ```bash
 https://github.com/torvalds/linux/compare/my-cool-feature?expand=1

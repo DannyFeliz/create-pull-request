@@ -1,5 +1,5 @@
 {
-  "name": "@dannyfeliz/open-pr",
+  "name": "create-pull-request",
   "version": "1.0.0",
   "description": "Allow to open the URL to create a pull request pointing to the base branch",
   "keywords": [
@@ -21,9 +21,9 @@
     "node": ">=8"
   },
   "files": [
-    "open-pr.js"
+    "create-pull-request.js"
   ],
   "bin": {
-    "open-pr": "./script.js"
+    "create-pull-request": "./script.js"
   }
 }
