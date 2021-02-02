@@ -29,6 +29,6 @@
     "create-pull-request.js"
   ],
   "bin": {
-    "create-pull-request": "./script.js"
+    "create-pull-request": "./create-pull-request.js"
   }
 }
