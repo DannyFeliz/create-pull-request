@@ -1,6 +1,6 @@
 {
   "name": "create-pull-request",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Allow to open the URL to create a pull request pointing to the base branch",
   "keywords": [
     "github",
