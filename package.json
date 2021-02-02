@@ -17,6 +17,12 @@
     "git-remote-origin-url": "^3.1.0",
     "open": "^7.4.0"
   },
+  "engines": {
+    "node": ">=8"
+  },
+  "files": [
+    "open-pr.js"
+  ],
   "bin": {
     "open-pr": "./script.js"
   }
