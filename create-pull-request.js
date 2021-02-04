@@ -11,11 +11,26 @@ const open = require("open");
       throw stderr;
     }
 
+    const browsers = [
+      { id: "chrome", value: "chrome" },
+      { id: "firefox", value: "firefox" },
+      { id: "edge", value: "msedge" },
+      { id: "safari", value: "safari" },
+      { id: "ie", value: "iexplore" },
+      { id: "opera", value: "opera" }
+    ];
+
     const branchName = stdout.trim();
     const remoteOriginUrl = await gitRemoteOriginUrl();
     const newPullRequestUrl = `https://${remoteOriginUrl.replace("git@", "").replace(":", "/").replace(/\.git$/, "")}/pull/new/${branchName}`;
+    let browser = process.argv.pop();
 
-    await open(newPullRequestUrl);
+    if (browser) {
+      browser = browsers.find((x) => x.id == browser.toLowerCase());
+      browser = browser ? browser.value : "";
+    }
+
+    await open(newPullRequestUrl, {app: browser});
   } catch (error) {
     throw error;
   }
