@@ -4,26 +4,6 @@ const exec = util.promisify(require("child_process").exec);
 const gitRemoteOriginUrl = require("git-remote-origin-url");
 const open = require("open");
 
-function getBrowser() {
-  const browsers = [
-    { id: "chrome", value: "chrome" },
-    { id: "firefox", value: "firefox" },
-    { id: "edge", value: "msedge" },
-    { id: "safari", value: "safari" },
-    { id: "ie", value: "iexplore" },
-    { id: "opera", value: "opera" }
-  ];
-
-  let [, , browser = ""] = process.argv;
-
-  if (browser) {
-    browser = browsers.find(({ id }) => id == browser.toLowerCase());
-    browser = browser ? browser.value : "";
-  }
-
-  return browser;
-}
-
 (async () => {
   try {
     const { stdout, stderr } = await exec("git rev-parse --abbrev-ref HEAD");
@@ -40,3 +20,18 @@ function getBrowser() {
     throw error;
   }
 })();
+
+function getBrowser() {
+  const browsers = {
+    "chrome": "chrome",
+    "firefox": "firefox",
+    "edge": "msedge",
+    "safari": "safari",
+    "ie": "iexplore",
+    "opera": "opera"
+  }
+
+  const [, , browser = ""] = process.argv;
+
+  return browsers[browser] || "";
+}
