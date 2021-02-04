@@ -4,6 +4,26 @@ const exec = util.promisify(require("child_process").exec);
 const gitRemoteOriginUrl = require("git-remote-origin-url");
 const open = require("open");
 
+function getBrowser() {
+  const browsers = [
+    { id: "chrome", value: "chrome" },
+    { id: "firefox", value: "firefox" },
+    { id: "edge", value: "msedge" },
+    { id: "safari", value: "safari" },
+    { id: "ie", value: "iexplore" },
+    { id: "opera", value: "opera" }
+  ];
+
+  let [, , browser = ""] = process.argv;
+
+  if (browser) {
+    browser = browsers.find(({ id }) => id == browser.toLowerCase());
+    browser = browser ? browser.value : "";
+  }
+
+  return browser;
+}
+
 (async () => {
   try {
     const { stdout, stderr } = await exec("git rev-parse --abbrev-ref HEAD");
@@ -11,26 +31,12 @@ const open = require("open");
       throw stderr;
     }
 
-    const browsers = [
-      { id: "chrome", value: "chrome" },
-      { id: "firefox", value: "firefox" },
-      { id: "edge", value: "msedge" },
-      { id: "safari", value: "safari" },
-      { id: "ie", value: "iexplore" },
-      { id: "opera", value: "opera" }
-    ];
-
     const branchName = stdout.trim();
     const remoteOriginUrl = await gitRemoteOriginUrl();
     const newPullRequestUrl = `https://${remoteOriginUrl.replace("git@", "").replace(":", "/").replace(/\.git$/, "")}/pull/new/${branchName}`;
-    let browser = process.argv.pop();
+    const browser = getBrowser();
 
-    if (browser) {
-      browser = browsers.find((x) => x.id == browser.toLowerCase());
-      browser = browser ? browser.value : "";
-    }
-
-    await open(newPullRequestUrl, {app: browser});
+    await open(newPullRequestUrl, { app: browser });
   } catch (error) {
     throw error;
   }
