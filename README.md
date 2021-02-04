@@ -17,8 +17,13 @@ yarn add create-pull-request --global
 ## Usage
 
 ```
-// in the terminal in your project folder
+// in the terminal in your project folder (default browser)
 create-pull-request
+```
+
+```
+// opens the URL in a specified browser
+create-pull-request firefox
 ```
 
 It will open an URL to create a new pull request pointing to the base branch.
@@ -36,4 +41,4 @@ Pull requests are welcome. For major changes, please open an issue first to disc
 
 ## License
 
-[MIT](https://choosealicense.com/licenses/mit/)
+This project is open source and available under the: [MIT License](LICENSE)
