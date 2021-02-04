@@ -13,9 +13,7 @@ const open = require("open");
     const branchName = stdout.trim();
     const remoteOriginUrl = await gitRemoteOriginUrl();
     const newPullRequestUrl = `https://${remoteOriginUrl.replace("git@", "").replace(":", "/").replace(/\.git$/, "")}/pull/new/${branchName}`;
-    const browser = getBrowser();
-
-    await open(newPullRequestUrl, { app: browser });
+    await open(newPullRequestUrl, { app: getBrowser() });
   } catch (error) {
     throw error;
   }
