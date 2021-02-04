@@ -23,7 +23,7 @@ const open = require("open");
     const branchName = stdout.trim();
     const remoteOriginUrl = await gitRemoteOriginUrl();
     const newPullRequestUrl = `https://${remoteOriginUrl.replace("git@", "").replace(":", "/").replace(/\.git$/, "")}/pull/new/${branchName}`;
-    let browser = process.argv.pop();
+    let [,, browser = ""] = process.argv;
 
     if (browser) {
       browser = browsers.find(({ id }) => id == browser.toLowerCase());
