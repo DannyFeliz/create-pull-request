@@ -30,7 +30,6 @@ function getBrowser() {
     if (stderr) {
       throw stderr;
     }
-
     const branchName = stdout.trim();
     const remoteOriginUrl = await gitRemoteOriginUrl();
     const newPullRequestUrl = `https://${remoteOriginUrl.replace("git@", "").replace(":", "/").replace(/\.git$/, "")}/pull/new/${branchName}`;
