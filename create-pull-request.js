@@ -26,7 +26,7 @@ const open = require("open");
     let browser = process.argv.pop();
 
     if (browser) {
-      browser = browsers.find((x) => x.id == browser.toLowerCase());
+      browser = browsers.find(({ id }) => id == browser.toLowerCase());
       browser = browser ? browser.value : "";
     }
 
