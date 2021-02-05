@@ -3,6 +3,8 @@ const util = require("util");
 const exec = util.promisify(require("child_process").exec);
 const gitRemoteOriginUrl = require("git-remote-origin-url");
 const open = require("open");
+const chalk = require('chalk');
+const warning = chalk.keyword('orange');
 
 (async () => {
   try {
@@ -10,7 +12,7 @@ const open = require("open");
     if (stderr) {
       throw stderr;
     }
-    const branchName = stdout.trim();
+    const branchName = stdout;
     const remoteOriginUrl = await gitRemoteOriginUrl();
     const newPullRequestUrl = `https://${remoteOriginUrl.replace("git@", "").replace(":", "/").replace(/\.git$/, "")}/pull/new/${branchName}`;
     await open(newPullRequestUrl, { app: getBrowser() });
@@ -29,7 +31,12 @@ function getBrowser() {
     "opera": "opera"
   }
 
-  const [, , browser = ""] = process.argv;
+  const [, , userInput] = process.argv;
+  const browser = browsers[userInput];
 
-  return browsers[browser] || "";
+  if (userInput && !browser) {
+    console.log(warning(`Browser "${userInput}" was not found, we will use your default browser.`));
+  }
+
+  return browser || "";
 }
