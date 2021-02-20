@@ -32,7 +32,7 @@ e.g.
 if you have the `linux` project and you're working in a cool feature like `my-cool-feature` and the project origin url is `git@github.com:torvalds/linux.git` if you run `create-pull-request` it will open this URL
 
 ```bash
-https://github.com/torvalds/linux/compare/my-cool-feature?expand=1
+https://github.com/torvalds/linux/compare/my-cool-feature
 ```
 
 ## Contributing
