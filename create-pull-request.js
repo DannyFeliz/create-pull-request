@@ -1,24 +1,19 @@
 #!/usr/bin/env node
-const util = require("util");
-const exec = util.promisify(require("child_process").exec);
 const gitRemoteOriginUrl = require("git-remote-origin-url");
+const branchName = require('current-git-branch');
 const open = require("open");
 const chalk = require('chalk');
 const warning = chalk.keyword('orange');
 
 (async () => {
-  try {
-    const { stdout, stderr } = await exec("git rev-parse --abbrev-ref HEAD");
-    if (stderr) {
-      throw stderr;
-    }
-    const branchName = stdout;
-    const remoteOriginUrl = await gitRemoteOriginUrl();
-    const newPullRequestUrl = `https://${remoteOriginUrl.replace("git@", "").replace(":", "/").replace(/\.git$/, "")}/pull/new/${branchName}`;
-    await open(newPullRequestUrl, { app: getBrowser() });
-  } catch (error) {
-    throw error;
-  }
+  const remoteOriginUrl = await gitRemoteOriginUrl();
+  const transformedUrl = remoteOriginUrl
+    .replace(":", "/")
+    .replace(/^git@/, "https://")
+    .replace(/\.git$/, "");
+
+  const newPullRequestUrl = `${transformedUrl}/pull/new/${branchName()}`;
+  await open(newPullRequestUrl, { app: getBrowser() });
 })();
 
 function getBrowser() {
