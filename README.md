@@ -1,3 +1,6 @@
+[<img src="https://img.shields.io/npm/dt/create-pull-request.svg">](https://www.npmjs.com/package/create-pull-request)
+[<img src="https://img.shields.io/npm/v/create-pull-request.svg">](https://www.npmjs.com/package/create-pull-request)
+
 # create-pull-request
 
 create-pull-request is a CLI that allows you to open the URL to create a pull request pointing to the base branch in Github.
