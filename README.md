@@ -5,6 +5,10 @@
 
 create-pull-request is a CLI that allows you to open the URL to create a pull request pointing to the base branch in Github.
 
+## Support
+- Github
+- BitBucket
+
 ## Installation
 
 Use npm or yarn to install create-pull-request.
@@ -37,6 +41,13 @@ if you have the `linux` project and you're working in a cool feature like `my-co
 ```bash
 https://github.com/torvalds/linux/compare/my-cool-feature
 ```
+
+## Aliases
+You can use any of these aliases to refer to this package.
+- create-pull-request
+- cpr
+- open-pr
+- openpr
 
 ## Contributing
 

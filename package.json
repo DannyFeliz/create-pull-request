@@ -34,6 +34,9 @@
     "create-pull-request.js"
   ],
   "bin": {
-    "create-pull-request": "./create-pull-request.js"
+    "create-pull-request": "./create-pull-request.js",
+    "cpr": "./create-pull-request.js",
+    "open-pr": "./create-pull-request.js",
+    "openpr": "./create-pull-request.js"
   }
 }
