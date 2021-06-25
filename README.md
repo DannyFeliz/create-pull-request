@@ -43,7 +43,7 @@ https://github.com/torvalds/linux/compare/my-cool-feature
 ```
 
 ## Aliases
-You can use any of these alias to refer to this package
+You can use any of these aliases to refer to this package.
 - create-pull-request
 - cpr
 - open-pr
