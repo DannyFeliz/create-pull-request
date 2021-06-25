@@ -7,15 +7,38 @@ const warning = chalk.keyword('orange');
 
 (async () => {
   const remoteOriginUrl = await gitRemoteOriginUrl();
-  const transformedUrl = remoteOriginUrl
+
+  const repoUrl = remoteOriginUrl
     .replace(":", "/")
     .replace(/^git@/, "https://")
     .replace(/\.git$/, "");
 
-  const newPullRequestUrl = `${transformedUrl}/pull/new/${branchName()}`;
-  await open(newPullRequestUrl, { app: getBrowser() });
+  const pullRequestURL = getPullRequestUrl(repoUrl);
+  if (!pullRequestURL) {
+    return;
+  }
+
+  await open(pullRequestURL, { app: getBrowser() });
 })();
 
+/**
+ * @param {string} repoUrl
+ * @returns {string}
+ */
+function getPullRequestUrl(repoUrl) {
+  const url = new URL(repoUrl);
+  if (url.host === "github.com") {
+    return `${url}/pull/new/${branchName()}`;
+  } else if (url.host === "bitbucket.org") {
+    return `${url}/pull-requests/new?source=${branchName()}&t=1`
+  }
+
+  return "";
+}
+
+/**
+ * @returns {string}
+ */
 function getBrowser() {
   const browsers = {
     "chrome": "chrome",
