@@ -1,24 +1,31 @@
 #!/usr/bin/env node
 const gitRemoteOriginUrl = require("git-remote-origin-url");
-const branchName = require('current-git-branch');
+const branchName = require("current-git-branch");
 const open = require("open");
-const chalk = require('chalk');
-const warning = chalk.keyword('orange');
+const chalk = require("chalk");
+const warning = chalk.keyword("orange");
+const error = chalk.keyword("red");
 
 (async () => {
-  const remoteOriginUrl = await gitRemoteOriginUrl();
+  try {
+    const remoteOriginUrl = await gitRemoteOriginUrl();
 
-  const repoUrl = remoteOriginUrl
-    .replace(":", "/")
-    .replace(/^git@/, "https://")
-    .replace(/\.git$/, "");
+    const repoUrl = remoteOriginUrl
+      .replace(":", "/")
+      .replace(/^git@/, "https://")
+      .replace(/\.git$/, "");
 
-  const pullRequestURL = getPullRequestUrl(repoUrl);
-  if (!pullRequestURL) {
-    return;
+    const pullRequestURL = getPullRequestUrl(repoUrl);
+    if (!pullRequestURL) {
+      return;
+    }
+
+    await open(pullRequestURL, { app: getBrowser() });
+  } catch (err) {
+    console.log(
+      error(err.message.charAt(0).toUpperCase() + err.message.slice(1))
+    );
   }
-
-  await open(pullRequestURL, { app: getBrowser() });
 })();
 
 /**
@@ -30,7 +37,7 @@ function getPullRequestUrl(repoUrl) {
   if (url.host === "github.com") {
     return `${url}/pull/new/${branchName()}`;
   } else if (url.host === "bitbucket.org") {
-    return `${url}/pull-requests/new?source=${branchName()}&t=1`
+    return `${url}/pull-requests/new?source=${branchName()}&t=1`;
   }
 
   return "";
@@ -41,19 +48,23 @@ function getPullRequestUrl(repoUrl) {
  */
 function getBrowser() {
   const browsers = {
-    "chrome": "chrome",
-    "firefox": "firefox",
-    "edge": "msedge",
-    "safari": "safari",
-    "ie": "iexplore",
-    "opera": "opera"
-  }
+    chrome: "chrome",
+    firefox: "firefox",
+    edge: "msedge",
+    safari: "safari",
+    ie: "iexplore",
+    opera: "opera",
+  };
 
   const [, , userInput] = process.argv;
   const browser = browsers[userInput];
 
   if (userInput && !browser) {
-    console.log(warning(`Browser "${userInput}" was not found, we will use your default browser.`));
+    console.log(
+      warning(
+        `Browser "${userInput}" was not found, we will use your default browser.`
+      )
+    );
   }
 
   return browser || "";
