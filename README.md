@@ -3,7 +3,7 @@
 
 # create-pull-request
 
-create-pull-request is a CLI that allows you to open the URL to create a pull request pointing to the base branch in Github.
+create-pull-request is a CLI that allows you to open the URL to create a pull request pointing to the base branch in Github and Bitbuket.
 
 ## Support
 - Github
