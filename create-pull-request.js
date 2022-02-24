@@ -37,7 +37,7 @@ function getPullRequestUrl(repoUrl) {
   if (url.host === "github.com") {
     return `${url}/pull/new/${branchName()}`;
   } else if (url.host === "bitbucket.org") {
-    return `${url}/pull-requests/new?source=${branchName()}&t=1`;
+    return `${url}/pull-requests/new?source=${branchName()}&t=1#diff`;
   }
 
   return "";
