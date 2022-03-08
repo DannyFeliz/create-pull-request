@@ -22,7 +22,7 @@
     "url": "https://github.com/DannyFeliz/create-pull-request"
   },
   "dependencies": {
-    "chalk": "^4.1.0",
+    "chalk": "^4.1.2",
     "current-git-branch": "^1.1.0",
     "git-remote-origin-url": "^3.1.0",
     "open": "^7.4.2"
