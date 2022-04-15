@@ -11,7 +11,6 @@ const error = chalk.keyword("red");
     const remoteOriginUrl = await gitRemoteOriginUrl();
 
     const repoUrl = remoteOriginUrl
-      .replace(":", "/")
       .replace(/^git@/, "https://")
       .replace(/\.git$/, "");
 
