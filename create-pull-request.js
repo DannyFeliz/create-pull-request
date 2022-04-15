@@ -8,14 +8,16 @@ const error = chalk.keyword("red");
 
 (async () => {
   try {
-    const remoteOriginUrl = await gitRemoteOriginUrl();
+    let remoteOriginUrl = await gitRemoteOriginUrl();
 
-    const repoUrl = remoteOriginUrl
-      .replace(":", "/")
-      .replace(/^git@/, "https://")
-      .replace(/\.git$/, "");
+    if (remoteOriginUrl.startsWith("git@")) {
+      remoteOriginUrl = remoteOriginUrl
+        .replace(/^git@/, "https://")
+        .replace(/(com|org):/, "$1/");
+    }
 
-    const pullRequestURL = getPullRequestUrl(repoUrl);
+    remoteOriginUrl = remoteOriginUrl.replace(/\.git$/, "");
+    const pullRequestURL = getPullRequestUrl(remoteOriginUrl);
     if (!pullRequestURL) {
       return;
     }
