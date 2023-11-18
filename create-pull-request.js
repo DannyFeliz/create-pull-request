@@ -6,7 +6,7 @@ const chalk = require("chalk");
 const warning = chalk.keyword("orange");
 const error = chalk.keyword("red");
 
-console.log("hello");
+console.log("hello")
 
 (async () => {
   try {
