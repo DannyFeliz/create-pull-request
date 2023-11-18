@@ -6,6 +6,8 @@ const chalk = require("chalk");
 const warning = chalk.keyword("orange");
 const error = chalk.keyword("red");
 
+console.log("hello");
+
 (async () => {
   try {
     let remoteOriginUrl = await gitRemoteOriginUrl();
