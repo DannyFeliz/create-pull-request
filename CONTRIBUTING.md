@@ -81,7 +81,6 @@ The project uses GitHub Actions for CI/CD. The workflow runs:
 1. **Test Job**
    - Runs all tests on the matrix combinations
    - Generates coverage reports
-   - Uploads coverage to Codecov (Ubuntu + Node 20.x only)
 
 2. **Lint Job**
    - Validates package.json
