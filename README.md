@@ -28,19 +28,44 @@ yarn global add create-pull-request
 ```bash
 # Open pull request in default browser
 create-pull-request
+# or use shorter aliases
+cpr
+open-pr
+openpr
 
 # Open pull request in specific browser
 create-pull-request chrome
-create-pull-request firefox
-create-pull-request safari
-create-pull-request edge
-create-pull-request opera
-create-pull-request brave
-create-pull-request firefox-dev
+# or use shorter aliases
+cpr firefox
+open-pr safari
+openpr edge
+
+# All browsers work with any alias
+cpr chrome
+cpr firefox
+cpr firefox-dev
+cpr safari
+cpr edge
+cpr opera
+cpr brave
 
 # Show help
 create-pull-request --help
+cpr --help
+open-pr --help
+openpr --help
 ```
+
+## Available Aliases
+
+For convenience, you can use any of these command aliases:
+
+- `create-pull-request` (full name)
+- `cpr` (short form)
+- `open-pr` (alternative)
+- `openpr` (alternative without dash)
+
+All aliases work identically - use whichever you prefer!
 
 ## Supported Browsers
 
