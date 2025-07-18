@@ -1,10 +1,11 @@
 #!/usr/bin/env node
-const gitRemoteOriginUrl = require("git-remote-origin-url");
-const branchName = require("current-git-branch");
-const open = require("open");
-const chalk = require("chalk");
-const warning = chalk.keyword("orange");
-const error = chalk.keyword("red");
+import gitRemoteOriginUrl from "git-remote-origin-url";
+import branchName from "current-git-branch";
+import open from "open";
+import chalk from "chalk";
+
+const warning = chalk.hex("#FFA500");
+const error = chalk.red;
 
 (async () => {
   try {
