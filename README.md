@@ -1,13 +1,15 @@
 [<img src="https://img.shields.io/npm/dt/create-pull-request.svg">](https://www.npmjs.com/package/create-pull-request)
 [<img src="https://img.shields.io/npm/v/create-pull-request.svg">](https://www.npmjs.com/package/create-pull-request)
+[![CI](https://github.com/DannyFeliz/create-pull-request/actions/workflows/ci.yml/badge.svg)](https://github.com/DannyFeliz/create-pull-request/actions/workflows/ci.yml)
 
 # create-pull-request
 
-create-pull-request is a CLI that allows you to open the URL to create a pull request pointing to the base branch in Github and Bitbuket.
+create-pull-request is a CLI that allows you to open the URL to create a pull request pointing to the base branch in GitHub, BitBucket, and GitLab.
 
 ## Support
-- Github
-- BitBucket
+- GitHub
+- BitBucket  
+- GitLab
 
 ## Installation
 
@@ -18,41 +20,67 @@ Use npm or yarn to install create-pull-request.
 npm install create-pull-request --global
 
 # yarn
-yarn add create-pull-request --global
+yarn global add create-pull-request
 ```
 
 ## Usage
 
-```
-// in the terminal in your project folder (default browser)
+```bash
+# Open pull request in default browser
 create-pull-request
-```
 
-```
-// opens the URL in a specified browser
+# Open pull request in specific browser
+create-pull-request chrome
 create-pull-request firefox
+create-pull-request safari
+create-pull-request edge
+create-pull-request opera
+create-pull-request brave
+create-pull-request firefox-dev
+
+# Show help
+create-pull-request --help
 ```
 
-It will open an URL to create a new pull request pointing to the base branch.
+## Supported Browsers
 
-e.g.
-if you have the `linux` project and you're working in a cool feature like `my-cool-feature` and the project origin url is `git@github.com:torvalds/linux.git` if you run `create-pull-request` it will open this URL
+- Chrome (`chrome`)
+- Firefox (`firefox`)
+- Firefox Developer Edition (`firefox-dev`)
+- Safari (`safari`)
+- Microsoft Edge (`edge`)
+- Opera (`opera`)
+- Brave (`brave`)
+
+## Development
+
+### Running Tests
 
 ```bash
-https://github.com/torvalds/linux/compare/my-cool-feature
+# Install dependencies
+npm install
+
+# Run tests
+npm test
+
+# Run tests once
+npm run test:run
+
+# Run tests with coverage
+npm run test:coverage
 ```
 
-## Aliases
-You can use any of these aliases to refer to this package.
-- create-pull-request
-- cpr
-- open-pr
-- openpr
+### Contributing
 
-## Contributing
-
-Pull requests are welcome. For major changes, please open an issue first to discuss what you would like to change.
+1. Fork the repository
+2. Create your feature branch (`git checkout -b feature/amazing-feature`)
+3. Make your changes
+4. Add tests for your changes
+5. Ensure tests pass (`npm test`)
+6. Commit your changes (`git commit -m 'Add some amazing feature'`)
+7. Push to the branch (`git push origin feature/amazing-feature`)
+8. Open a Pull Request
 
 ## License
 
-This project is open source and available under the: [MIT License](LICENSE)
+This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
