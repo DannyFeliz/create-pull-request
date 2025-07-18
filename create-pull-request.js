@@ -185,5 +185,19 @@ async function main() {
   }
 }
 
-// Execute main function
-main();
+// Export functions for testing
+export {
+  SUPPORTED_BROWSERS,
+  SUPPORTED_PLATFORMS,
+  isHelpRequested,
+  normalizeGitUrl,
+  getPullRequestUrl,
+  getBrowser,
+  displayHelp,
+  main
+};
+
+// Only run main if this file is executed directly
+if (import.meta.url === `file://${process.argv[1]}`) {
+  main();
+}
