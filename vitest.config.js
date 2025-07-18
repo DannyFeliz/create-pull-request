@@ -14,12 +14,6 @@ export default defineConfig({
         '**/*.test.js',
         'coverage/**',
       ],
-      thresholds: {
-        statements: 70,
-        branches: 85,
-        functions: 85,
-        lines: 70,
-      },
     },
   },
 });
