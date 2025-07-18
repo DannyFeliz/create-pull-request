@@ -1,6 +1,6 @@
 {
   "name": "create-pull-request",
-  "version": "2.0.1",
+  "version": "2.0.2",
   "description": "Allow to open the URL to create a pull request pointing to the base branch",
   "keywords": [
     "cli",
