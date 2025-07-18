@@ -13,7 +13,7 @@ create-pull-request is a CLI that allows you to open the URL to create a pull re
 
 ## Installation
 
-Use npm or yarn to install create-pull-request.
+Use npm, yarn, pnpm, or bun to install create-pull-request.
 
 ```bash
 # npm
@@ -21,6 +21,12 @@ npm install create-pull-request --global
 
 # yarn
 yarn global add create-pull-request
+
+# pnpm
+pnpm add create-pull-request --global
+
+# bun
+bun add create-pull-request --global
 ```
 
 ## Usage
