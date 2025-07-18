@@ -32,6 +32,21 @@ Thank you for your interest in contributing to create-pull-request! This documen
    node create-pull-request.js --help
    ```
 
+### Windows Compatibility
+
+The project is configured to work correctly on Windows, macOS, and Linux. If you encounter line ending issues on Windows, ensure your Git configuration is set up correctly:
+
+```bash
+# Configure Git to handle line endings automatically
+git config --global core.autocrlf false
+git config --global core.eol lf
+```
+
+The project includes:
+- **`.gitattributes`** - Ensures consistent line endings across platforms
+- **CI configuration** - Automatically handles line endings in GitHub Actions
+- **Cross-platform testing** - Tests run on all three major operating systems
+
 ## Testing
 
 We use [Vitest](https://vitest.dev/) for testing. The test suite includes:
